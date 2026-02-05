@@ -55,11 +55,9 @@
        WORKING-STORAGE SECTION. 
        01 SWITCHES.
           05 CUSTMAST-EOF-SWITCH    PIC X             VALUE "N".
+             88 CUSTMAST-EOF                          VALUE "Y".
       *
        01 PRINT-FIELD.
-          05 PAGE-COUNT             PIC S9(3)         VALUE ZERO.
-          05 LINES-ON-PAGE          PIC S9(3)         VALUE +55.
-          05 LINE-COUNT             PIC S9(3)         VALUE +99.
           05 SPACE-CONTROL          PIC S9.
       *
        01 TOTAL-FIELDS.
@@ -83,7 +81,7 @@
           05 HL1-MONTH              PIC 9(2).
           05 FILLER                 PIC X(1)          VALUE "/".
           05 HL1-YEAR               PIC 9(4).
-          05 FILLER                 PIC X(4)          VALUE SPACE.
+          05 FILLER                 PIC X(12)         VALUE SPACE.
           05 FILLER                 PIC X(12)         VALUE
                 "MANU'S COBOL".
           05 FILLER                 PIC X(12)         VALUE
@@ -92,7 +90,7 @@
                 "ARATION PROG".
           05 FILLER                 PIC X(12)         VALUE
                 "RAM.        ".
-          05 FILLER                 PIC X(63)         VALUE SPACE.
+          05 FILLER                 PIC X(55)         VALUE SPACE.
       *
        01 HEADING-LINE-2.
           05 FILLER                 PIC X(7)          VALUE "TIME:  ".
@@ -164,4 +162,103 @@
                 "NFRAME COBOL".
           05 FILLER                 PIC X(2)          VALUE "'.".
           05 FILLER                 PIC X(5)          VALUE SPACE.
+      *****************************************************************
       *
+      *****************************************************************
+       PROCEDURE DIVISION.
+      *****************************************************************
+      *
+      *****************************************************************
+       000-PREPARE-SALES-REPORT.
+      *
+           OPEN INPUT CUSTMAST
+                OUTPUT SALESRPT.
+           PERFORM 100-FORMAT-REPORT-HEADING.
+           PERFORM 200-PRINT-HEADING-LINES.
+           PERFORM 300-PREPARE-SALES-LINES
+              UNTIL CUSTMAST-EOF.
+           PERFORM 400-PRINT-GRAND-TOTALS.
+           PERFORM 500-PRINT-FOOTER.
+           CLOSE CUSTMAST
+                 SALESRPT.
+           STOP RUN.
+      *
+      *****************************************************************
+      *
+      *****************************************************************
+       100-FORMAT-REPORT-HEADING.
+      *
+           MOVE FUNCTION CURRENT-DATE TO CURRENT-DATE-AND-TIME.
+           MOVE CD-CURRENT-MONTH TO HL1-MONTH.
+           MOVE CD-CURRENT-DAY TO HL1-DAY.
+           MOVE CD-CURRENT-YEAR TO HL1-YEAR.
+           MOVE CD-CURRENT-HOURS TO HL2-HOURS.
+           MOVE CD-CURRENT-MINUTES TO HL2-MINUTES.
+      *
+      *****************************************************************
+      *
+      *****************************************************************
+       200-PRINT-HEADING-LINES.
+      *
+           MOVE HEADING-LINE-1 TO PRINT-AREA.
+           WRITE PRINT-AREA.
+           MOVE HEADING-LINE-2 TO PRINT-AREA.
+           WRITE PRINT-AREA AFTER ADVANCING 1 LINES.
+           MOVE HEADING-LINE-3 TO PRINT-AREA.
+           WRITE PRINT-AREA AFTER ADVANCING 2 LINES.
+           MOVE HEADING-LINE-4 TO PRINT-AREA.
+           WRITE PRINT-AREA AFTER ADVANCING 1 LINES.
+           MOVE 2 TO SPACE-CONTROL.
+      *
+      *****************************************************************
+      *
+      *****************************************************************
+       300-PREPARE-SALES-LINES.
+      *
+           PERFORM 310-READ-CUSTOMER-RECORD.
+           IF NOT CUSTMAST-EOF
+              PERFORM 320-PRINT-CUSTOMER-LINE.
+      *
+      *****************************************************************
+      *
+      *****************************************************************
+       310-READ-CUSTOMER-RECORD.
+      *
+           READ CUSTMAST
+           AT END
+              MOVE "Y" TO CUSTMAST-EOF-SWITCH.
+      *
+      *****************************************************************
+      *
+      *****************************************************************
+       320-PRINT-CUSTOMER-LINE.
+      *
+           MOVE CM-CUSTOMER-NUMBER TO CL-CUSTOMER-NUMBER.
+           MOVE CM-CUSTOMER-NAME TO CL-CUSTOMER-NAME.
+           MOVE CM-SALES-THIS-YTD TO CL-SALES-THIS-YTD.
+           MOVE CM-SALES-LAST-YTD TO CL-SALES-LAST-YTD.
+           MOVE CUSTOMER-LINE TO PRINT-AREA.
+           WRITE PRINT-AREA AFTER ADVANCING SPACE-CONTROL LINES.
+           ADD CM-SALES-THIS-YTD TO GRAND-TOTAL-THIS-YTD.
+           ADD CM-SALES-LAST-YTD TO GRAND-TOTAL-LAST-YTD.
+           MOVE 1 TO SPACE-CONTROL.
+      *
+      *****************************************************************
+      *
+      *****************************************************************
+       400-PRINT-GRAND-TOTALS.
+      *
+           MOVE GRAND-TOTAL-THIS-YTD TO GTL-SALES-THIS-YTD.
+           MOVE GRAND-TOTAL-LAST-YTD TO GTL-SALES-LAST-YTD.
+           MOVE GRAND-TOTAL-LINE TO PRINT-AREA.
+           WRITE PRINT-AREA AFTER ADVANCING 2 LINES.
+      *
+      *****************************************************************
+      *
+      *****************************************************************
+       500-PRINT-FOOTER.
+      *
+           MOVE FOOTER-LINE TO PRINT-AREA.
+           WRITE PRINT-AREA AFTER ADVANCING 2 LINES.
+      *
+      
