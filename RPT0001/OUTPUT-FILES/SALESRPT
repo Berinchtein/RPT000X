@@ -1,5 +1,5 @@
 DATE:  05/02/2026            MANU'S COBOL REPORT PREPARATION PROGRAM.                                                               
-TIME:  16:15                                                       RPT0001                                                          
+TIME:  16:19                                                       RPT0001                                                          
 
 CUST                            SALES          SALES                                                                                
 NUM    CUSTOMER NAME           THIS YTD      LAST YTD                                                                               
@@ -37,4 +37,4 @@ NUM    CUSTOMER NAME           THIS YTD      LAST YTD
 
                              249,860.13    224,965.12                                                                               
 
-     THANK YOU FOR USING MANU'S COBOL REPORT PREPARATION PROGRAM. ALL INITIAL CODE PROVIDED BY MIKE MURACH'S 'MAINFRAME COBOL'.     
+THANK YOU FOR USING MANU'S COBOL REPORT PREPARATION PROGRAM. ALL INITIAL CODE PROVIDED BY MIKE MURACH'S 'MAINFRAME COBOL'.          

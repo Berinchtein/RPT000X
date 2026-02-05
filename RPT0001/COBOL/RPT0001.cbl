@@ -140,7 +140,6 @@
           05 FILLER                 PIC X(78)         VALUE SPACE.
       *
        01 FOOTER-LINE.
-          05 FILLER                 PIC X(5)          VALUE SPACE.
           05 FILLER                 PIC X(12)         VALUE
                 "THANK YOU FO".
           05 FILLER                 PIC X(12)         VALUE
@@ -162,7 +161,7 @@
           05 FILLER                 PIC X(12)         VALUE
                 "NFRAME COBOL".
           05 FILLER                 PIC X(2)          VALUE "'.".
-          05 FILLER                 PIC X(5)          VALUE SPACE.
+          05 FILLER                 PIC X(10)          VALUE SPACE.
       *****************************************************************
       *
       *****************************************************************
@@ -262,4 +261,3 @@
            MOVE FOOTER-LINE TO PRINT-AREA.
            WRITE PRINT-AREA AFTER ADVANCING 2 LINES.
       *
-      
