@@ -1,0 +1,40 @@
+DATE:  05/02/2026            MANU'S COBOL REPORT PREPARATION PROGRAM.                                                               
+TIME:  16:15                                                       RPT0001                                                          
+
+CUST                            SALES          SALES                                                                                
+NUM    CUSTOMER NAME           THIS YTD      LAST YTD                                                                               
+
+11111  INFORMATION BUILDERS    1,234.56      1,111.11                                                                               
+12345  CAREER TRAINING CTR    12,345.67     22,222.22                                                                               
+22222  HOMELITE TEXTRON CO    34,545.00          0.00                                                                               
+34567  NEAS MEMBER BENEFITS      111.11          0.00                                                                               
+55555  PILOT LIFE INS. CO.    10,000.00      1,000.00                                                                               
+00111  DAUPHIN DEPOSIT BANK   14,099.00     19,930.00                                                                               
+54321  AIRCRAFT OWNERS ASSC    5,426.12     40,420.00                                                                               
+33333  NORFOLK CORP            6,396.35      4,462.88                                                                               
+12121  GENERAL SERVICES CO.   11,444.00     11,059.56                                                                               
+24680  INFO MANAGEMENT CO.    17,481.45     11,892.47                                                                               
+99999  DOLLAR SAVINGS BANK     5,059.00      4,621.95                                                                               
+76543  NATL MUSIC CORP.        2,383.46      4,435.26                                                                               
+99876  SOFTWARE SOLUTIONS      4,567.00     12,345.67                                                                               
+45678  DATA PROCESSING INC     7,890.12      4,567.89                                                                               
+34568  MIDWEST SUPPLY CO       1,234.00        987.65                                                                               
+56789  INDUSTRIAL PARTNERS     9,999.99      9,999.99                                                                               
+78901  GLOBAL TECH GROUP         543.21        123.45                                                                               
+17346  NORTHERN TRUST CO      12,000.00      1,100.00                                                                               
+65432  ATLANTIC FINANCE        8,765.43        765.43                                                                               
+88888  PACIFIC INVESTMENT      6,666.66      6,000.00                                                                               
+34579  CENTRAL LOGISTICS       4,500.00        430.00                                                                               
+56780  METRO SERVICES LTD      7,891.00      9,876.54                                                                               
+12233  FIRST UNION BANK       13,456.00     12,345.60                                                                               
+45679  REGIONAL FOODS INC      2,345.00        123.45                                                                               
+67890  ADVANCED SYSTEMS        9,987.00      8,765.40                                                                               
+11112  URBAN RETAIL GROUP      5,678.00      5,678.00                                                                               
+99999  CAPITAL INSURANCE      14,567.00     14,567.00                                                                               
+22224  HORIZON CREDIT ASSC     6,789.00      6,789.00                                                                               
+88881  INTEGRATED NETWORKS     3,456.00        345.60                                                                               
+99998  NATIONAL DATA CORP      8,999.00      8,999.00                                                                               
+
+                             249,860.13    224,965.12                                                                               
+
+     THANK YOU FOR USING MANU'S COBOL REPORT PREPARATION PROGRAM. ALL INITIAL CODE PROVIDED BY MIKE MURACH'S 'MAINFRAME COBOL'.     

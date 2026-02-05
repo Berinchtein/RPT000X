@@ -46,6 +46,7 @@
           05 CM-CUSTOMER-NAME       PIC X(20).
           05 CM-SALES-THIS-YTD      PIC S9(5)V9(2).
           05 CM-SALES-LAST-YTD      PIC S9(5)V9(2).
+          05 FILLER                 PIC X.
       *
        FD  SALESRPT.
        01 PRINT-AREA                PIC X(132).
@@ -97,9 +98,9 @@
           05 HL2-HOURS              PIC 9(2).
           05 FILLER                 PIC X(1)          VALUE ":".
           05 HL2-MINUTES            PIC 9(2).
-          05 FILLER                 PIC X(58)         VALUE SPACE.
+          05 FILLER                 PIC X(55)         VALUE SPACE.
           05 FILLER                 PIC X(7)          VALUE "RPT0001".
-          05 FILLER                 PIC X(52)         VALUE SPACE.
+          05 FILLER                 PIC X(58)         VALUE SPACE.
       *
        01 HEADING-LINE-3.
           05 FILLER                 PIC X(4)          VALUE "CUST".
@@ -129,7 +130,7 @@
           05 CL-SALES-THIS-YTD      PIC ZZ,ZZ9.99-.
           05 FILLER                 PIC X(4)          VALUE SPACE.
           05 CL-SALES-LAST-YTD      PIC ZZ,ZZ9.99-.
-          05 FILLER                 PIC X(78)         VALUE SPACE.
+          05 FILLER                 PIC X(80)         VALUE SPACE.
       *
        01 GRAND-TOTAL-LINE.
           05 FILLER                 PIC X(27)         VALUE SPACE.
